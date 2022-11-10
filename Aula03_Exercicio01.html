@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <label>Número Inicial:</label>
+    <input type="number" id="inicial">
+
+    <br>
+    <label>Número Final:</label>
+    <input type="number" id="final">
+
+    <br>
+    <button id="div" onclick="sample()">Exibe os números da sequencia de Fibonacci dentro do intervalo
+        solicitado.</button>
+
+    <hr>
+    <label>Sequencia:</label>
+    <textarea id="sequencia" cols="30" rows="10"></textarea>
+
+
+</body>
+
+<script>
+    //exercício01
+    function sample() {
+        debugger;
+
+        var numeroInicial = document.getElementById("inicial");
+        var numeroFinal = document.getElementById("final");
+        var sequencia = document.getElementById("sequencia");
+        var numero;
+        var numeroAnterior = 0;
+        var proxNumero = 0;
+        var seq = 1;
+
+        var meuArray = [];
+
+        while (proxNumero < numeroFinal.value) {
+            if (seq == 1) {
+                numero = 1;
+                numeroAnterior = 0;
+                proxNumero = numero + numeroAnterior;
+                if (proxNumero >= numeroInicial.value && proxNumero < numeroFinal.value) {
+                    sequencia.value = sequencia.value + proxNumero + ",";
+                }
+
+                seq = seq + 1
+
+            }
+
+            proxNumero = numero + numeroAnterior;
+            numeroAnterior = numero
+            numero = proxNumero
+
+            if (proxNumero >= numeroInicial.value && proxNumero < numeroFinal.value) {
+                sequencia.value = sequencia.value + proxNumero + "-";
+            }
+
+        }
+
+
+    }
+
+</script>
+
+
+</html>
